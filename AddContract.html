@@ -1,0 +1,681 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Create Contract -- Contract Demo Project</title>
+
+		<link href="styles/ContractSite.css" rel="stylesheet" />
+		<link href="styles/kendo.common.min.css" rel="stylesheet" />
+		<link href="styles/kendo.default.min.css" rel="stylesheet" />
+		<link href="styles/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
+		<link href="styles/jquery.gritter.css" rel="stylesheet" />
+		<link href="styles/jquery.qtip.css" rel="stylesheet" />
+
+		<script src="scripts/jquery-1.8.1.js"></script>
+		<script src="scripts/jquery-ui-1.8.23.custom.js"></script>
+		<script src="scripts/jquery.gritter.js"></script>
+		<script src="scripts/jquery.qtip.js"></script>
+
+		<script src="scripts/kendo.web.min.js"></script>
+		<script src="scripts/people.js"></script>
+	</head>
+	<body>
+		<div id="divAddHeader">
+			<table>
+				<tr>
+					<td><img src="images/Black_circle/document_blank.png" /></td>
+					<td style="vertical-align: center;"><h1>Stap<label id="labelStepTitle"></label></h1></td>
+				</tr>
+			</table>
+		</div>
+		<div id="divStep1">
+			<table>
+				<tr>
+					<td><label class="mandotoryFieldLabel">Contract soort</label></td>
+					<td><span class="inputField" id="spnContractType" title="Dit is het soort contract wat u heeft ingevoerd.">
+						<input id="ddlContractType" />
+					</span></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<input type="radio" name="rdContact" value="party" />
+					Partij
+					<input type="radio" name="rdContact" value="person" />
+					Persoon </td>
+				</tr>
+			</table>
+			<div id="divContractDetails" style="display: none;">
+				<div class="tabstrip">
+					<ul>
+						<li class="k-state-active">
+							Partij
+						</li>
+						<li>
+							Persoon
+						</li>
+					</ul>
+					<div>
+						<div id="divPartyInputs">
+							<table>
+								<tr>
+									<td colspan="4"><span class="inputField" id="spnParty" title="Dit is het soort contract wat u heeft ingevoerd.">
+										<input id="ddlParty" />
+									</span></td>
+								</tr>
+								<tr>
+									<td class="mandotoryFieldLabel">Naam</td>
+									<td>
+									<input type="text" class="partyInput" />
+									</td>
+									<td>Telefoon</td>
+									<td>
+									<input type="text" class="partyInput" />
+									</td>
+								</tr>
+								<tr>
+									<td>Adres</td>
+									<td>
+									<input type="text" class="partyInput" />
+									</td>
+									<td>Fax</td>
+									<td>
+									<input type="text" class="partyInput" />
+									</td>
+								</tr>
+								<tr>
+									<td>Postbus</td>
+									<td>
+									<input type="text" class="partyInput" />
+									</td>
+									<td>E-email adres</td>
+									<td>
+									<input type="text" class="partyInput" />
+									</td>
+								</tr>
+								<tr>
+									<td>Postcode</td>
+									<td>
+									<input type="text" class="partyInput" />
+									</td>
+									<td>Website</td>
+									<td>
+									<input type="text" class="partyInput" />
+									</td>
+								</tr>
+								<tr>
+									<td>Plaats</td>
+									<td>
+									<input type="text" class="partyInput" />
+									</td>
+									<td>Opmerking</td>
+									<td>
+									<input type="text" class="partyInput" />
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div>
+						<div id="divPersonInputs">
+							<table>
+								<tr>
+									<td colspan="4"><span class="inputField" id="spnPerson" title="Dit is het soort contract wat u heeft ingevoerd.">
+										<input id="ddlPerson" />
+									</span></td>
+								</tr>
+								<tr>
+									<td class="mandotoryFieldLabel">Achternaam</td>
+									<td>
+									<input type="text" class="personInput" />
+									</td>
+									<td>Telefoon</td>
+									<td>
+									<input type="text" class="personInput" />
+									</td>
+								</tr>
+								<tr>
+									<td>Voornaam</td>
+									<td>
+									<input type="text" class="personInput" />
+									</td>
+									<td>Fax</td>
+									<td>
+									<input type="text" class="personInput" />
+									</td>
+								</tr>
+								<tr>
+									<td>Adres</td>
+									<td>
+									<input type="text" class="personInput" />
+									</td>
+									<td>E-mail adres</td>
+									<td>
+									<input type="text" class="personInput" />
+									</td>
+								</tr>
+								<tr>
+									<td>Postbus</td>
+									<td>
+									<input type="text" class="personInput" />
+									</td>
+									<td>Website</td>
+									<td>
+									<input type="text" class="personInput" />
+									</td>
+								</tr>
+								<tr>
+									<td>PostCode</td>
+									<td>
+									<input type="text" class="personInput" />
+									</td>
+									<td rowspan="2">Opmerking</td>
+									<td rowspan="2">
+									<input type="text" class="personInput" />
+									</td>
+								</tr>
+								<tr>
+									<td>Plaats</td>
+									<td>
+									<input type="text" class="personInput" />
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="divStep2">
+			<div id="divDemoContactPersonList"></div>
+		</div>
+		<div id="divStep3">
+			<div id="divContractBasicInfoInputs">
+				<table>
+					<tr>
+						<td class="mandotoryFieldLabel">Naam contract</td>
+						<td>
+						<input type="text" class="contractBasicInfoInput" />
+						</td>
+						<td>Relatie</td>
+						<td><span class="inputField" id="spnRelatedPerson" title="U kunt dit contract koppelen aan een al bestaand contract in de Contracten Module.">
+							<input id="ddlRelatedPerson" />
+						</span></td>
+					</tr>
+					<tr>
+						<td>Versie</td>
+						<td>
+						<input type="text" class="contractBasicInfoInput" />
+						</td>
+						<td>Eigenaar</td>
+						<td><span class="inputField" id="spnOwner" title="U kunt hier een eigenaar aan het contract koppelen.">
+							<input id="ddlOwner" />
+						</span></td>
+					</tr>
+					<tr>
+						<td>Omschrijving</td>
+						<td>
+						<input type="text" class="contractBasicInfoInput" />
+						</td>
+						<td>Eigen Partij</td>
+						<td><span class="inputField" id="spnOwnParty" title="U kunt hier het organisatie onderdeel selecteren dat het contract aangaat. Dit kan een specifieke AGB code zijn, of bijvoorbeeld uw ICT afdeling.">
+							<input id="ddlOwnParty" />
+						</span></td>
+					</tr>
+					<tr>
+						<td>Referentienummer</td>
+						<td>
+						<input type="text" class="contractBasicInfoInput" />
+						</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+			<div id="divContractDocumentInputs">
+				<ul>
+					<li>
+						<a>Document</a>
+						<input type="file" />
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="divStep4">
+			<div id="divDateInputs">
+				<table>
+					<tr>
+						<td>Start datum</td>
+						<td>
+						<input type="text" class="contractDatesInput" />
+						</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Eind datum</td>
+						<td>
+						<input type="text" class="contractDatesInput" />
+						</td>
+						<td><img src="images/Black_circle/alarm.png" width="16px" height="16px"/></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Opzegtermijn</td>
+						<td>
+						<input type="text" class="contractDatesInput" size="5" />
+						<select>
+							<option value="0">Dagen</option>
+							<option value="1">Weken</option>
+							<option value="2">Maanden</option>
+							<option value="3">Jaren</option>
+						</select></td>
+						<td><img src="images/Black_circle/alarm.png" width="16px" height="16px"/></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Verlengtermijn</td>
+						<td>
+						<input type="text" class="contractDatesInput" size="5" />
+						<select>
+							<option value="0">Dagen</option>
+							<option value="1">Weken</option>
+							<option value="2">Maanden</option>
+							<option value="3">Jaren</option>
+						</select></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Looptijd</td>
+						<td>
+						<lable id="lblPeriod">
+							11 months, 3 days
+						</lable></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="divStep5">
+			<div id="divDemoFinancialList"></div>
+		</div>
+		<div id="divActions">
+			<input type="hidden" id="stepRecord" value="0" />
+			<input type="button" title="Terug" id="btnBack" value="Terug" />
+			<a>|</a>
+			<input type="button" title="Volgende" id="btnNext" value="Volgende" />
+			<input type="button" title="Finish" id="btnFinish" value="Finish" style="display: none;" />
+		</div>
+	</body>
+	<script>
+		$(document).ready(function() {
+			$("#divStep2").hide();
+			$("#divStep3").hide();
+			$("#divStep4").hide();
+			$("#divStep5").hide();
+			$("#stepRecord").val("0");
+
+			$("#labelStepTitle").html(" 1: Partij of Persoon");
+
+			$("#btnNext").click(function() {
+				if ($("#stepRecord").val() == "0") {
+					$("#divStep1").hide();
+					$("#divStep2").show();
+					$("#divStep3").hide();
+					$("#divStep4").hide();
+					$("#divStep5").hide();
+
+					$("#stepRecord").val("1");
+					$("#labelStepTitle").html(" 2: Contact personen");
+					return;
+				}
+
+				if ($("#stepRecord").val() == "1") {
+					$("#divStep1").hide();
+					$("#divStep2").hide();
+					$("#divStep3").show();
+					$("#divStep4").hide();
+					$("#divStep5").hide();
+
+					$("#stepRecord").val("2");
+					$("#labelStepTitle").html(" 3: Algemene contract gegevens");
+					return;
+				}
+
+				if ($("#stepRecord").val() == "2") {
+					$("#divStep1").hide();
+					$("#divStep2").hide();
+					$("#divStep3").hide();
+					$("#divStep4").show();
+					$("#divStep5").hide();
+
+					$("#stepRecord").val("3");
+					$("#labelStepTitle").html(" 4: Date en tijd");
+					return;
+				}
+
+				if ($("#stepRecord").val() == "3") {
+					$("#divStep1").hide();
+					$("#divStep2").hide();
+					$("#divStep3").hide();
+					$("#divStep4").hide();
+					$("#divStep5").show();
+
+					$("#stepRecord").val("4");
+					$("#labelStepTitle").html(" 5: Financiele gegevens");
+
+					$("#btnNext").hide();
+					$("#btnFinish").show();
+					return;
+				}
+			});
+
+			$("#btnBack").click(function() {
+				if ($("#stepRecord").val() == "1") {
+					$("#divStep1").show();
+					$("#divStep2").hide();
+					$("#divStep3").hide();
+					$("#divStep4").hide();
+					$("#divStep5").hide();
+
+					$("#stepRecord").val("0");
+					$("#labelStepTitle").html(" 1: Partij of Persoon");
+					return;
+				}
+
+				if ($("#stepRecord").val() == "2") {
+					$("#divStep1").hide();
+					$("#divStep2").show();
+					$("#divStep3").hide();
+					$("#divStep4").hide();
+					$("#divStep5").hide();
+
+					$("#stepRecord").val("1");
+					$("#labelStepTitle").html(" 2: Contact personen");
+					return;
+				}
+
+				if ($("#stepRecord").val() == "3") {
+					$("#divStep1").hide();
+					$("#divStep2").hide();
+					$("#divStep3").show();
+					$("#divStep4").hide();
+					$("#divStep5").hide();
+
+					$("#stepRecord").val("2");
+					$("#labelStepTitle").html(" 3: Algemene contract gegevens");
+					return;
+				}
+
+				if ($("#stepRecord").val() == "4") {
+					$("#divStep1").hide();
+					$("#divStep2").hide();
+					$("#divStep3").hide();
+					$("#divStep4").show();
+					$("#divStep5").hide();
+
+					$("#stepRecord").val("3");
+					$("#labelStepTitle").html(" 4: Date en tijd");
+
+					$("#btnNext").show();
+					$("#btnFinish").hide();
+					return;
+				}
+			});
+
+			var availableTags = [{
+				text : "Zorgverzekeraar",
+				value : "1"
+			}, {
+				text : "Zorgaanbieder",
+				value : "2"
+			}, {
+				text : "Patient",
+				value : "3"
+			}, {
+				text : "Tandarts",
+				value : "4"
+			}, {
+				text : "Ziekenhuis",
+				value : "5"
+			}, {
+				text : "Huisarts",
+				value : "6"
+			}, {
+				text : "Toevoegen",
+				value : "7"
+			}];
+
+			$("#ddlContractType").width(220).kendoComboBox({
+				dataTextField : "text",
+				dataValueField : "value",
+				filter : "contains",
+				dataSource : availableTags
+			});
+
+			var partyTab = tabstrip.tabGroup.children("li").eq(0);
+			var personTab = tabstrip.tabGroup.children("li").eq(1);
+
+			$("input:radio[name='rdContact']").change(function() {
+				if ($(this).val() == 'person') {
+					$('#divContractDetails').show();
+
+					tabstrip.select(personTab);
+					tabstrip.enable(personTab, true);
+					tabstrip.enable(partyTab, false);
+				}
+
+				if ($(this).val() == 'party') {
+					$('#divContractDetails').show();
+
+					var selectedItem = tabstrip.tabGroup.children("li").eq(0);
+					tabstrip.select(partyTab);
+					tabstrip.enable(partyTab, true);
+					tabstrip.enable(personTab, false);
+				}
+			});
+
+			$('.partyInput, .personInput').button().css({
+				'font' : 'inherit',
+				'color' : 'inherit',
+				'text-align' : 'left',
+				'outline' : 'none',
+				'cursor' : 'text'
+			});
+
+			$(".partyInput, .personInput").each(function() {
+				$(this).attr('disabled', 'disabled');
+			});
+
+			var availablePerson = [{
+				text : "[Anders]",
+				value : "1"
+			}];
+
+			var availableParty = [{
+				text : "[Anders]",
+				value : "1"
+			}];
+
+			var partyList = $("#ddlParty").width(220).kendoComboBox({
+				dataTextField : "text",
+				dataValueField : "value",
+				filter : "contains",
+				dataSource : availableParty,
+				change : partyChanged
+			});
+
+			var personList = $("#ddlPerson").width(220).kendoComboBox({
+				dataTextField : "text",
+				dataValueField : "value",
+				filter : "contains",
+				dataSource : availablePerson,
+				change : personChanged
+			});
+
+			$('#btnFinish').click(function() {
+				$.gritter.add({
+					// (string | mandatory) the heading of the notification
+					title : 'Notification Center',
+					// (string | mandatory) the text inside the notification
+					text : 'U heeft alle stappen van de aanmaak van een contract doorlopen. U zult automatisch naar het overzicht van uw bestaande contracten worden geleid.',
+					// (string | optional) the image to display on the left
+					image : 'images/White_circle/document_blank.png',
+					// (bool | optional) if you want it to fade out on its own or just sit there
+					sticky : false,
+					// (int | optional) the time you want it to be alive for before fading out
+					time : '3000'
+				});
+
+				return false;
+			});
+		});
+
+		var tabstrip = $(".tabstripNewContract").kendoTabStrip({
+			animation : {
+				open : {
+					effects : "fadeIn"
+				}
+			}
+		}).data("kendoTabStrip");
+
+		function partyChanged(e) {
+			if ($(e.sender.items()).html() == '[Anders]') {
+				$('#divPartyInputs input').each(function() {
+					$(this).removeAttr('disabled')
+				});
+			}
+		};
+
+		function personChanged(e) {
+			if ($(e.sender.items()).html() == '[Anders]') {
+				$('#divPersonInputs input').each(function() {
+					$(this).removeAttr('disabled')
+				});
+			}
+		};
+
+		$("#divDemoContactPersonList").kendoGrid({
+			dataSource : {
+				data : createRandomData(0),
+				schema : {
+					model : {
+						fields : {
+							FirstName : {
+								type : "string"
+							},
+							LastName : {
+								type : "string"
+							},
+							City : {
+								type : "string"
+							},
+							Title : {
+								type : "string"
+							},
+							BirthDate : {
+								type : "date"
+							},
+							Age : {
+								type : "number"
+							}
+						}
+					}
+				},
+				pageSize : 10
+			},
+			height : 300,
+			scrollable : true,
+			pageable : true,
+			columns : [{
+				field : "FirstName",
+				title : "Archternaam"
+			}, {
+				field : "LastName",
+				title : "Voornaam"
+			}, {
+				field : "City",
+				title : "Functie"
+			}, {
+				field : "BirthDate",
+				title : "E-mail",
+				template : '#= kendo.toString(BirthDate,"MM/dd/yyyy") #'
+			}, {
+				field : "Title",
+				title : "Telnummer"
+			}, {
+				command : ["edit", "destroy"],
+				title : "&nbsp;"
+			}],
+			toolbar : ["create"],
+			editable : "inline"
+		});
+
+		$("#divDemoFinancialList").kendoGrid({
+			dataSource : {
+				data : createRandomData(0),
+				schema : {
+					model : {
+						fields : {
+							FirstName : {
+								type : "string"
+							},
+							LastName : {
+								type : "string"
+							},
+							City : {
+								type : "string"
+							},
+							Title : {
+								type : "string"
+							},
+							BirthDate : {
+								type : "date"
+							},
+							Age : {
+								type : "number"
+							},
+							TestNumber : {
+								type : "number"
+							}
+						}
+					}
+				},
+				pageSize : 10
+			},
+			height : 300,
+			scrollable : true,
+			pageable : true,
+			columns : [{
+				field : "FirstName",
+				title : "Code"
+			}, {
+				field : "LastName",
+				title : "Budget regel"
+			}, {
+				field : "City",
+				title : "Product code"
+			}, {
+				field : "BirthDate",
+				title : "Omschrijving",
+				template : '#= kendo.toString(BirthDate,"MM/dd/yyyy") #'
+			}, {
+				field : "Title",
+				title : "Afspraak aantallen"
+			}, {
+				field : "Age",
+				title : "Afspraak eenheid"
+			}, {
+				field : "TestNumber",
+				title : "Afspraak prijs"
+			}, {
+				command : ["edit", "destroy"],
+				title : "&nbsp;"
+			}],
+			toolbar : ["create"],
+			editable : "inline"
+		});
+	</script>
+</html>

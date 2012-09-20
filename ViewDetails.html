@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>View Details -- Demo Project</title>
+
+		<link href="styles/ContractSite.css" rel="stylesheet" />
+		<link href="styles/kendo.common.min.css" rel="stylesheet" />
+		<link href="styles/kendo.default.min.css" rel="stylesheet" />
+		<link href="styles/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
+		<link href="styles/jquery.gritter.css" rel="stylesheet" />
+		<link href="styles/jquery.qtip.css" rel="stylesheet" />
+		<link href="styles/bootstrap.css" rel="stylesheet" />
+
+		<script src="scripts/jquery-1.8.1.js"></script>
+		<script src="scripts/jquery-ui-1.8.23.custom.js"></script>
+		<script src="scripts/jquery.gritter.js"></script>
+		<script src="scripts/jquery.qtip.js"></script>
+
+		<script src="scripts/kendo.web.min.js"></script>
+
+		<script src="scripts/people.js"></script>
+	</head>
+	<body>
+		<h1>Contract NAAM ID</h1>
+
+		<div id="example" class="k-content">
+			<div id="divContractDetails">
+				<div class="tabstrip">
+					<ul>
+						<li class="k-state-active">
+							Algemeen
+						</li>
+						<li>
+							Contact personen
+						</li>
+						<li>
+							Data en tijd
+						</li>
+						<li>
+							Financieel
+						</li>
+						<li>
+							Documenten
+						</li>
+					</ul>
+					<div>
+						<div id="divContractGeneral">
+							<table class="table table-striped table-hover">
+								<tr>
+									<td>Contract naam:</td>
+									<td><a class="contentField">*********</a><span class="inputField">
+										<input id="txtContractName" type="text" title="Dit is de naam die u aan het contract heeft gegeven." />
+									</span></td>
+								</tr>
+								<tr>
+									<td>Contract ID:</td>
+									<td>*********</td>
+								</tr>
+								<tr>
+									<td>Contract soort:</td>
+									<td><a class="contentField">*********</a><span class="inputField" id="spnContractType" title="Dit is het soort contract wat u heeft ingevoerd.">
+										<input id="ddlContractType" />
+									</span></td>
+								</tr>
+								<tr>
+									<td>Versie:</td>
+									<td>*********</td>
+								</tr>
+								<tr>
+									<td>Eigenaar:</td>
+									<td>*********</td>
+								</tr>
+								<tr>
+									<td>Partij:</td>
+									<td>*********</td>
+								</tr>
+								<tr>
+									<td>Persoon:</td>
+									<td>*********</td>
+								</tr>
+								<tr>
+									<td>Adres:</td>
+									<td>*********</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div>
+						<div id="divContractContact"></div>
+					</div>
+					<div>
+						<div id="divContractPeriod">
+							<table>
+								<tr>
+									<td>Start datum:</td>
+									<td>*********</td>
+								</tr>
+								<tr>
+									<td>Eind datum:</td>
+									<td>*********</td>
+								</tr>
+								<tr>
+									<td>Datum ingevoerd:</td>
+									<td>*********</td>
+								</tr>
+								<tr>
+									<td>Datum gewijzigd:</td>
+									<td>*********</td>
+								</tr>
+								<tr>
+									<td>Opzeg termijn:</td>
+									<td>*********</td>
+								</tr>
+								<tr>
+									<td>Verleng termijn:</td>
+									<td>*********</td>
+								</tr>
+								<tr>
+									<td>Looptijd contract:</td>
+									<td>*********</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div>
+						<div id="divContractFinancial"></div>
+					</div>
+					<div>
+						<div id="divContractDocuments"></div>
+					</div>
+				</div>
+				<div id="divDetailsActions">
+					<input type="hidden" id="detailEditStatus" value="0" />
+					<button id="btnEdit">
+						Aanpassen
+					</button>
+					<button id="btnCancelEdit" style="display: none;">
+						Cancel
+					</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(document).ready(function() {
+			var availableTags = [{
+				text : "Zorgverzekeraar",
+				value : "1"
+			}, {
+				text : "Zorgaanbieder",
+				value : "2"
+			}, {
+				text : "Patient",
+				value : "3"
+			}, {
+				text : "Tandarts",
+				value : "4"
+			}, {
+				text : "Ziekenhuis",
+				value : "5"
+			}, {
+				text : "Huisarts",
+				value : "6"
+			}, {
+				text : "Toevoegen",
+				value : "7"
+			}];
+
+			$("#ddlContractType").width(220).kendoComboBox({
+				dataTextField : "text",
+				dataValueField : "value",
+				filter : "contains",
+				dataSource : availableTags
+			});
+
+			$(".inputField").hide();
+
+			$("#spnContractType").qtip({
+				content : {
+					attr : "title"
+				},
+				style : {
+					classes : 'ui-tooltip-dark ui-tooltip-shadow ui-tooltip-rounded'
+				},
+				position : {
+					my : 'left top'
+					//corner : {
+					//	arget : 'rightMiddle',
+					//	tooltip : 'leftMiddle'
+					//}
+				},
+				show : {
+					when : {
+						event : 'focus'
+					}
+				},
+				hide : {
+					when : {
+						event : 'blur'
+					}
+				}
+			});
+
+			$(".tabstrip").kendoTabStrip({
+				animation : {
+					open : {
+						effects : "fadeIn"
+					}
+				}
+			});
+
+			$('input:text, input:password').button().css({
+				'font' : 'inherit',
+				'color' : 'inherit',
+				'text-align' : 'left',
+				'outline' : 'none',
+				'cursor' : 'text'
+			});
+
+			$("#btnEdit").button().click(function() {
+				if ($("#detailEditStatus").val() == "0") {
+					$("#btnEdit span").html('Save');
+					$("#detailEditStatus").val("1");
+
+					$("#btnCancelEdit").show();
+
+					$(".contentField").hide();
+					$(".inputField").show();
+					return;
+				}
+
+				if ($("#detailEditStatus").val() == "1") {
+					$("#btnEdit span").html('Aanpassen');
+					$("#detailEditStatus").val("0");
+
+					$("#btnCancelEdit").hide();
+
+					$(".contentField").show();
+					$(".inputField").hide();
+
+					$.gritter.add({
+						// (string | mandatory) the heading of the notification
+						title : 'Notification Center',
+						// (string | mandatory) the text inside the notification
+						text : 'Contract Algemeen has been updated.',
+						// (string | optional) the image to display on the left
+						image : 'images/White_circle/alarm.png',
+						// (bool | optional) if you want it to fade out on its own or just sit there
+						sticky : false,
+						// (int | optional) the time you want it to be alive for before fading out
+						time : '3000'
+					});
+					return false;
+				}
+			});
+
+			$("#btnCancelEdit").button().click(function() {
+				$("#btnEdit span").html('Aanpassen');
+				$("#btnCancelEdit").hide();
+				$("#detailEditStatus").val("0");
+
+				$(".contentField").show();
+				$(".inputField").hide();
+			});
+
+			$("#txtContractName").qtip({
+				content : {
+					attr : "title"
+				},
+				style : {
+					classes : 'ui-tooltip-dark ui-tooltip-shadow ui-tooltip-rounded'
+				},
+				position : {
+					my : 'left top'
+					//corner : {
+					//	arget : 'rightMiddle',
+					//	tooltip : 'leftMiddle'
+					//}
+				},
+				show : {
+					when : {
+						event : 'focus'
+					}
+				},
+				hide : {
+					when : {
+						event : 'blur'
+					}
+				}
+			});
+
+			var crudServiceBaseUrl = "http://demos.kendoui.com/service", dataSource = new kendo.data.DataSource({
+				transport : {
+					read : {
+						url : crudServiceBaseUrl + "/Products",
+						dataType : "jsonp"
+					},
+					update : {
+						url : crudServiceBaseUrl + "/Products/Update",
+						dataType : "jsonp"
+					},
+					destroy : {
+						url : crudServiceBaseUrl + "/Products/Destroy",
+						dataType : "jsonp"
+					},
+					create : {
+						url : crudServiceBaseUrl + "/Products/Create",
+						dataType : "jsonp"
+					},
+					parameterMap : function(options, operation) {
+						if (operation !== "read" && options.models) {
+							return {
+								models : kendo.stringify(options.models)
+							};
+						}
+					}
+				},
+				batch : true,
+				pageSize : 10,
+				schema : {
+					model : {
+						id : "ProductID",
+						fields : {
+							ProductID : {
+								editable : false,
+								nullable : true
+							},
+							ProductName : {
+								validation : {
+									required : true
+								}
+							}
+						}
+					}
+				}
+			});
+
+			$("#divContractContact").kendoGrid({
+				dataSource : dataSource,
+				pageable : true,
+				toolbar : ["create"],
+				columns : [{
+					field : "ProductName",
+					title : "Achtemaan"
+				}, {
+					field : "ProductName",
+					title : "Voornaam"
+				}, {
+					field : "ProductName",
+					title : "Functie"
+				}, {
+					command : ["edit", "destroy"],
+					title : "&nbsp;"
+				}],
+				editable : "inline"
+			});
+		});
+	</script>
+</html>
+

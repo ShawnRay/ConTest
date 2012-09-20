@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Menu -- Demo Project</title>
+		
+		<link href="styles/ContractSite.css" rel="stylesheet" />
+		<link href="styles/kendo.common.min.css" rel="stylesheet" />
+		<link href="styles/kendo.default.min.css" rel="stylesheet" />
+		<link href="styles/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
+		<link href="styles/jquery.gritter.css" rel="stylesheet" />
+
+		<script src="scripts/jquery-1.8.1.js"></script>
+		<script src="scripts/jquery-ui-1.8.23.custom.js"></script>
+		<script src="scripts/jquery.gritter.js"></script>
+
+		<script src="scripts/kendo.web.min.js"></script>
+		<script src="scripts/ContractSite.js"></script>
+
+		<script src="scripts/people.js"></script>
+		<script src="scripts/console.js"></script>
+	</head>
+	<body>
+		<div id="example" class="k-content">
+			<div id="menu-images"></div>
+		</div>
+	</body>
+	
+	<script>
+                $("#menu-images").kendoMenu({
+                    dataSource: [
+                        {
+                            text: "Home", imageUrl: "images/Black_circle/home.png"
+                        },
+                        {
+                            text: "Contracten", imageUrl: "images/Black_circle/document.png"
+                        },
+                        {
+                            text: "Contacten", imageUrl: "images/Black_circle/profile_edit.png",
+                            items: [
+                                { text: "Partij", imageUrl: "images/Black_circle/profile_group.png" },
+                                { text: "Persoon", imageUrl: "images/Black_circle/profile_add.png" }
+                            ]
+                        },
+                        {
+                            text: "Financieel", imageUrl: "images/Black_circle/piggybank.png"
+                        },
+                        {
+                            text: "Track & Trace", imageUrl: "images/Black_circle/satellite.png"
+                        },
+                        {
+                            text: "Notificaties", imageUrl: "images/Black_circle/alarm.png"
+                        },
+                        {
+                        	text: "Rapportage", imageUrl: "images/Black_circle/chart.png"
+                        }
+                    ]
+                });
+            </script>
+</html>
+

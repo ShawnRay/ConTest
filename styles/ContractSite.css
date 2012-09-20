@@ -1,0 +1,85 @@
+body {
+    color: #5C5C5C;
+    font-family: Arial, Tahoma, Helvetica;
+    font-size: 12px;
+    background-color: #F2F2F2;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    padding: 5px 10px 5px 10px;
+}
+
+h1 {
+    padding: 10px 10px 10px 10px;
+}
+
+h2 {
+    display: inline;
+}
+
+footer {
+    text-align: right;
+    width: 100%;
+    padding: 20px 0px 0px 0px;
+    background-color: #D6D6D6;
+    
+    /*position: absolute;
+    bottom:0px; 
+    height:60px; 
+    left:0px; 
+    overflow:hidden;*/
+}
+
+a, img{
+    cursor: pointer;
+    cursor: hand;
+}
+
+#menu-images {
+}
+
+#menu-images img{
+    width: 32px;
+    height: 32px;
+}
+
+header, #divAddHeader {
+    background-color: #D6D6D6;
+}
+
+header, #divAddHeader img {
+    padding: 10px 0px 10px 50px;
+}
+
+.mandotoryFieldLabel {
+    font-weight: bold;
+}
+
+#divActions {
+    padding: 20px 20px 20px 20px;
+}
+
+#divSummary {
+    padding: 15px 0px 30px 30px;
+}
+
+#divOverviewActions{
+    padding: 10px 5px 10px 5px;
+}
+
+#divContractDetails {
+    padding: 10px 5px 10px 5px;
+}
+
+#divDetailsActions{
+    text-align: right;
+    padding: 10px 5px 10px 5px;
+}
+
+#divStep1, #divStep2, #divStep3, #divStep4, #divStep5 {
+    padding: 20px 10px 20px 10px;
+}
