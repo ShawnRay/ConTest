@@ -269,48 +269,6 @@
 	});
 }
 
-function onOpen(e) {
-	//kendoConsole.log("Opened: " + $(e.item).children(".k-link").text());
-
-}
-
-function onClose(e) {
-	//kendoConsole.log("Closed: " + $(e.item).children(".k-link").text());
-}
-
-function onSelect(e) {
-	if ($(e.item).children(".k-link").text() == 'Home') {
-		//window.location.replace("http://127.0.0.1:8020/KendoUIDemos/Home.html");
-		
-		window.location.replace("http://192.168.166.16/ContractDemo/Home.html");
-	}
-
-	if ($(e.item).children(".k-link").text() == 'Bewerk/Bekijk') {
-		//window.location.replace("http://127.0.0.1:8020/KendoUIDemos/OverviewContract.html");
-		
-		window.location.replace("http://192.168.166.16/ContractDemo/OverviewContract.html");
-	}
-
-	if ($(e.item).children(".k-link").text() == 'Notificaties') {
-
-		$.gritter.add({
-			// (string | mandatory) the heading of the notification
-			title : 'Notification Center',
-			// (string | mandatory) the text inside the notification
-			text : '5 notifications.',
-			// (string | optional) the image to display on the left
-			image : 'images/White_circle/alarm.png',
-			// (bool | optional) if you want it to fade out on its own or just sit there
-			sticky : false,
-			// (int | optional) the time you want it to be alive for before fading out
-			time : '3000'
-		});
-
-		return false;
-	}
-}
-
-
 $(document).ready(function () {
     $("#menu-images").kendoMenu({
         dataSource: [{
