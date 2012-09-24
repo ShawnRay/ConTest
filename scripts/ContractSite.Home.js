@@ -12,7 +12,8 @@ $(document).ready(function() {
 				text : "Bewerk/Bekijk"
 			}]
 		}, {
-			text : "Notificaties",
+			text : "<label>Notificaties</label><div style=\"margin-top: 4px; margin-left: 6px; float: right; color: white; font-weight: bold; height: 20px; width:20px; background-image: url('images/notification_error_medium.png');\"><div style='margin-left: 6px;'>5</div></div>",
+			encoded: false,
 			imageUrl : "images/Black_circle/alarm.png"
 		}, {
 			text : "Partij",

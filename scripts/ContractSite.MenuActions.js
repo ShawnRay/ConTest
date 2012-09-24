@@ -17,27 +17,56 @@ function onSelect(e) {
 		//window.location.replace("http://192.168.166.16/ContractDemo/Home.html");
 	}
 
+	if ($(e.item).children(".k-link").text() == 'Contracten') {
+		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewContract.html");
+		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewContract.html");
+	}
+
+	if ($(e.item).children(".k-link").text() == 'Partij') {
+		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewParty.html");
+		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewParty.html");
+	}
+
+	if ($(e.item).children(".k-link").text() == 'Persoon') {
+		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewPerson.html");
+		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewPerson.html");
+	}
+
 	if ($(e.item).children(".k-link").text() == 'Bewerk/Bekijk') {
-		if($(e.item).parents("div").prev("span").text() == 'Contracten')
-		{
+		if ($(e.item).parents("div").prev("span").text() == 'Contracten') {
 			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewContract.html");
 			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewContract.html");
 		}
-		
-		if($(e.item).parents("div").prev("span").text() == 'Partij')
-		{
+
+		if ($(e.item).parents("div").prev("span").text() == 'Partij') {
 			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewParty.html");
 			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewParty.html");
 		}
-		
-		if($(e.item).parents("div").prev("span").text() == 'Persoon')
-		{
+
+		if ($(e.item).parents("div").prev("span").text() == 'Persoon') {
+			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewPerson.html");
+			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewPerson.html");
+		}
+	}
+	
+	if ($(e.item).children(".k-link").text() == 'Nieuw') {
+		if ($(e.item).parents("div").prev("span").text() == 'Contracten') {
+			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewContract.html");
+			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewContract.html");
+		}
+
+		if ($(e.item).parents("div").prev("span").text() == 'Partij') {
+			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewParty.html");
+			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewParty.html");
+		}
+
+		if ($(e.item).parents("div").prev("span").text() == 'Persoon') {
 			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewPerson.html");
 			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewPerson.html");
 		}
 	}
 
-	if ($(e.item).children(".k-link").text() == 'Notificaties') {
+	if ($(e.item).children(".k-link").children('label').text() == 'Notificaties') {
 
 		$.gritter.add({
 			// (string | mandatory) the heading of the notification
@@ -54,7 +83,7 @@ function onSelect(e) {
 
 		return false;
 	}
-	
+
 	if ($(e.item).children(".k-link").html() == $('#menu-images li:last span').html()) {
 
 		$.gritter.add({
@@ -69,9 +98,14 @@ function onSelect(e) {
 			// (int | optional) the time you want it to be alive for before fading out
 			time : '3000'
 		});
-		
+
 		$("#divHelpContent").dialog('open');
 
 		return false;
 	}
+	
+	if ($(e.item).children(".k-link").text() == 'Home') {
+		$("#divHelpContent").dialog('open');
+	}
+
 }
