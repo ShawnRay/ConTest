@@ -270,6 +270,7 @@
 }
 
 $(document).ready(function () {
+	$("#btnPrint").printPreview();
 
     $("#divDemoPersonContracsList").kendoGrid({
         dataSource: {
