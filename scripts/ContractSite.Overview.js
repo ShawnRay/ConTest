@@ -331,6 +331,8 @@ function personChanged(e) {
 };
 
 $(document).ready(function() {
+	$("#btnPrint").printPreview();
+	
 	$("#menu-images").kendoMenu({
 		dataSource : [{
 			text : "Home",
