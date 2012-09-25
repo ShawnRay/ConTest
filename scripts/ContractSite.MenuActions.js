@@ -24,17 +24,14 @@ function onClose(e) {
 function onSelect(e) {
 	if ($(e.item).children(".k-link").text() == 'Home') {
 		window.location.replace("http://127.0.0.1:8020/ConDemos/Home.html");
-
 		//window.location.replace("http://192.168.166.16/ContractDemo/Home.html");
 	}
 
 	if ($(e.item).children(".k-link").text() == 'Contracten') {
 		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewContract.html");
 		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewContract.html");
-
-		$("#checkSource").val("0");
 	}
-
+	
 	if ($(e.item).children(".k-link").text() == 'Partij') {
 		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewParty.html");
 		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewParty.html");
@@ -82,7 +79,6 @@ function onSelect(e) {
 	}
 
 	if ($(e.item).children(".k-link").children('label').text() == 'Notificaties') {
-
 		$.gritter.add({
 			// (string | mandatory) the heading of the notification
 			title : 'Notification Center',
@@ -95,8 +91,16 @@ function onSelect(e) {
 			// (int | optional) the time you want it to be alive for before fading out
 			time : '3000'
 		});
+		
+		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewNotification.html");
 
 		return false;
+	}
+	
+	
+	if ($(e.item).children(".k-link").text() == 'Track and Trace') {
+		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewTrackAndTrace.html");
+		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewContract.html");
 	}
 
 	if ($(e.item).children(".k-link").html() == $('#menu-images li:last span').html()) {

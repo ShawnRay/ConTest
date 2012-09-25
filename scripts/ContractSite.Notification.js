@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+	$('#btnSignOff').button();
+	
     $("#divDemoNotificationList").kendoGrid({
         dataSource: {
             data: createNotificationRandomData(3),
