@@ -93,35 +93,6 @@ function detailInit(e) {
 		$("#divSetNotification").dialog('open');
 	});
 
-	$("#divSetNotification").dialog({
-		title : 'Notification',
-		autoOpen : false,
-		height : 200,
-		width : 600,
-		modal : true,
-		buttons : {
-			"Save" : function() {
-				$.gritter.add({
-					// (string | mandatory) the heading of the notification
-					title : 'Notification Center',
-					// (string | mandatory) the text inside the notification
-					text : 'New notification have been set.',
-					// (string | optional) the image to display on the left
-					image : 'images/White_circle/alarm.png',
-					// (bool | optional) if you want it to fade out on its own or just sit there
-					sticky : false,
-					// (int | optional) the time you want it to be alive for before fading out
-					time : '3000'
-				});
-
-				return false;
-			},
-			"Return" : function() {
-				$("#divSetNotification").dialog('close');
-			}
-		}
-	});
-
 	$(".inputField").hide();
 
 	$("#ddlContractType").width(220).kendoComboBox({
@@ -251,6 +222,40 @@ function detailInit(e) {
 		}],
 		editable : "inline"
 	});
+	
+	$("#divDocumentList").kendoGrid({
+		dataSource : {
+			data : createRandomData(3),
+			schema : {
+				model : {
+					fields : {
+						FirstName : {
+							type : "string"
+						},
+						LastName : {
+							type : "string"
+						}
+					}
+				}
+			},
+			pageSize : 6
+		},
+		height : 300,
+		scrollable : false,
+		pageable : true,
+		columns : [{
+			field : "FirstName",
+			title : "Document titel"
+		}, {
+			field : "LastName",
+			title : "Omschrijving"
+		}, {
+			command : ["destroy"],
+			title : "&nbsp;"
+		}],
+		toolbar : kendo.template("<input type='file' /><input type='button' value='Save' />"),
+		editable : "inline"
+	});
 }
 
 function partyChanged(e) {
@@ -270,6 +275,41 @@ function personChanged(e) {
 };
 
 $(document).ready(function() {
+	$(".imgPopUpAlert").click(function() {
+		$("#divSetNotification").dialog('open');
+	});
+
+	$("#notifyDate").kendoDatePicker();
+	
+	$("#divSetNotification").dialog({
+		title : 'Notification',
+		autoOpen : false,
+		height : 200,
+		width : 600,
+		modal : true,
+		buttons : {
+			"Save" : function() {
+				$.gritter.add({
+					// (string | mandatory) the heading of the notification
+					title : 'Notification Center',
+					// (string | mandatory) the text inside the notification
+					text : 'New notification have been set.',
+					// (string | optional) the image to display on the left
+					image : 'images/White_circle/alarm.png',
+					// (bool | optional) if you want it to fade out on its own or just sit there
+					sticky : false,
+					// (int | optional) the time you want it to be alive for before fading out
+					time : '3000'
+				});
+
+				return false;
+			},
+			"Return" : function() {
+				$("#divSetNotification").dialog('close');
+			}
+		}
+	});
+	
 	$("#divStep2").hide();
 	$("#divStep3").hide();
 	$("#divStep4").hide();
@@ -338,7 +378,7 @@ $(document).ready(function() {
 		}, {
 			title : " ",
 			width : 50,
-			template : "<img class='imgDeleteConfirm' src='images/delete.png' rel='delete' /><img class='imgArchiveConfirm' src='images/unlock.png' rel='delete' />"
+			template : "<img class='imgDeleteConfirm' src='images/delete.png' rel='delete' />"
 		}]
 	});
 
@@ -346,9 +386,9 @@ $(document).ready(function() {
 		$("#divDeleteConfirmation").dialog('open');
 	});
 
-	$(".imgArchiveConfirm").click(function() {
-		$("#divArchiveConfirmation").dialog('open');
-	});
+	//$(".imgArchiveConfirm").click(function() {
+	//	$("#divArchiveConfirmation").dialog('open');
+	//});
 
 	$("#divDeleteConfirmation").dialog({
 		title : 'Contract',
@@ -533,7 +573,7 @@ $(document).ready(function() {
 
 	$("#divDemoContactPersonList").kendoGrid({
 		dataSource : {
-			data : createRandomData(0),
+			data : createRandomData(1),
 			schema : {
 				model : {
 					fields : {
@@ -589,7 +629,7 @@ $(document).ready(function() {
 
 	$("#divDemoFinancialList").kendoGrid({
 		dataSource : {
-			data : createRandomData(0),
+			data : createRandomData(1),
 			schema : {
 				model : {
 					fields : {
@@ -649,6 +689,40 @@ $(document).ready(function() {
 			title : "&nbsp;"
 		}],
 		toolbar : ["create"],
+		editable : "inline"
+	});
+	
+	$("#divDocumentCreateList").kendoGrid({
+		dataSource : {
+			data : createRandomData(3),
+			schema : {
+				model : {
+					fields : {
+						FirstName : {
+							type : "string"
+						},
+						LastName : {
+							type : "string"
+						}
+					}
+				}
+			},
+			pageSize : 6
+		},
+		height : 200,
+		scrollable : false,
+		pageable : true,
+		columns : [{
+			field : "FirstName",
+			title : "Document titel"
+		}, {
+			field : "LastName",
+			title : "Omschrijving"
+		}, {
+			command : ["destroy"],
+			title : "&nbsp;"
+		}],
+		toolbar : kendo.template("<input type='file' /><input type='button' value='Save' />"),
 		editable : "inline"
 	});
 

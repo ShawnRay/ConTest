@@ -70,6 +70,32 @@
 				<div id="divHelpContent" style="display: none;">
 					Help Content of Contract Module!
 				</div>
+				<div id="divSetNotification" style="display: none;">
+					<table>
+						<tr>
+							<td> Date </td>
+							<td>
+							<input id="notifyDate" value="" />
+							</td>
+						</tr>
+						<!-- <tr>
+							<td>Set by</td>
+							<td>*********</td>
+						</tr>
+						<tr>
+							<td>For user</td>
+							<td>*********</td>
+						</tr>
+						<tr>
+							<td>Repeat term</td>
+							<td>*********</td>
+						</tr>
+						<tr>
+							<td>Note</td>
+							<td>*********</td>
+						</tr> -->
+					</table>
+				</div>
 			</div>
 		</div>
 		<hr/>
@@ -292,12 +318,7 @@
 					</table>
 				</div>
 				<div id="divContractDocumentInputs">
-					<ul>
-						<li>
-							<a>Document</a>
-							<input type="file" />
-						</li>
-					</ul>
+					<div id="divDocumentCreateList"></div>
 				</div>
 			</div>
 			<div id="divStep4">
@@ -316,7 +337,7 @@
 							<td>
 							<input type="text" class="contractDatesInput" />
 							</td>
-							<td><img src="images/Black_circle/alarm.png" width="16px" height="16px"/></td>
+							<td><img src="images/Black_circle/alarm.png" class="imgPopUpAlert" width="16px" height="16px"/></td>
 							<td></td>
 						</tr>
 						<tr>
@@ -329,7 +350,7 @@
 								<option value="2">Maanden</option>
 								<option value="3">Jaren</option>
 							</select></td>
-							<td><img src="images/Black_circle/alarm.png" width="16px" height="16px"/></td>
+							<td><img src="images/Black_circle/alarm.png" class="imgPopUpAlert" width="16px" height="16px"/></td>
 							<td></td>
 						</tr>
 						<tr>
@@ -368,166 +389,124 @@
 		<!-- Details -->
 		<script type="text/x-kendo-template" id="template">
 			<div id="divContractDetails">
-			<div class="tabstrip">
-			<ul>
-			<li class="k-state-active">
-			Algemeen
-			</li>
-			<li>
-			Contact personen
-			</li>
-			<li>
-			Data en tijd
-			</li>
-			<!-- Do not need notifications tab anymore [Maarten.D]
-			<li>
-			Notificaties
-			</li>-->
-			<li>
-			Documenten
-			</li>
-			</ul>
-			<div>
-			<div id="divContractGeneral">
-			<table>
-			<tr>
-			<td>Contract naam:</td>
-			<td>
-			<a class="contentField">*********</a>
-			<span class="inputField" title="Dit is de naam die u aan het contract heeft gegeven.">
-			<input id="txtContractName" type="text" />
-			</span>
-			</td>
-			</tr>
-			<tr>
-			<td>Contract ID:</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>Contract soort:</td>
-			<td>
-			<a class="contentField">*********</a>
-			<span class="inputField" id="spnContractType" title="Dit is het soort contract wat u heeft ingevoerd.">
-			<input id="ddlContractType" />
-			</span>
-			</td>
-			</tr>
-			<tr>
-			<td>Versie:</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>Eigenaar:</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>Partij:</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>Persoon:</td>
-			<td>*********</td>
-			</tr>
-			<!-- Contract do not need Adres [Maarten.D] -->
-			<!--<tr>
-			<td>Adres:</td>
-			<td>*********</td>
-			</tr>-->
-			</table>
-			</div>
-			</div>
-			<div>
-			<div id="divContractContact"></div>
-			</div>
-			<div>
-			<div id="divContractPeriod">
-			<table>
-			<tr>
-			<td>Start datum:</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>Eind datum:</td>
-			<td>********* <img class="imgNotification" src="images/icon-confirm.gif"/></td>
-			</tr>
-			<tr>
-			<td>Datum ingevoerd:</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>Datum gewijzigd:</td>
-			<td>********* <img class="imgNotification" src="images/icon-error.gif"/></td>
-			</tr>
-			<tr>
-			<td>Opzeg termijn:</td>
-			<td>********* <img class="imgNotification"src="images/icon-error.gif"/></td>
-			</tr>
-			<tr>
-			<td>Verleng termijn:</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>Looptijd contract:</td>
-			<td>*********</td>
-			</tr>
-			</table>
-			</div>
-			</div>
-			<!-- Do not need notifications tab anymore [Maarten.D]
-			<div>
-			<div id="divContractNotifications">
-			<table>
-			<tr>
-			<td>1e herinnering:</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>2e herinnering:</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>3e herinnering:</td>
-			<td>*********</td>
-			</tr>
-			</table>
-			</div>
-			</div>-->
-			<div>
-			<div id="divContractDocuments"></div>
-			</div>
-			</div>
-			<div id="divDetailsActions">
-			<input type="hidden" id="detailEditStatus" value="0" />
-			<button id="btnEdit">
-			Aanpassen
-			</button>
-			<button id="btnCancelEdit" style="display: none;">Cancel</button>
-			</div>
+				<div class="tabstrip">
+					<ul>
+						<li class="k-state-active">
+						Algemeen
+						</li>
+						<li>
+						Contact personen
+						</li>
+						<li>
+						Data en tijd
+						</li>
+					<!-- Do not need notifications tab anymore [Maarten.D]
+					<li>
+					Notificaties
+					</li>-->
+						<li>
+						Documenten
+						</li>
+					</ul>
+					<div>
+						<div id="divContractGeneral">
+							<table>
+							<tr>
+							<td>Contract naam:</td>
+							<td>
+							<a class="contentField">*********</a>
+							<span class="inputField" title="Dit is de naam die u aan het contract heeft gegeven.">
+							<input id="txtContractName" type="text" />
+							</span>
+							</td>
+							</tr>
+							<tr>
+							<td>Contract ID:</td>
+							<td>*********</td>
+							</tr>
+							<tr>
+							<td>Contract soort:</td>
+							<td>
+							<a class="contentField">*********</a>
+							<span class="inputField" id="spnContractType" title="Dit is het soort contract wat u heeft ingevoerd.">
+							<input id="ddlContractType" />
+							</span>
+							</td>
+							</tr>
+							<tr>
+							<td>Versie:</td>
+							<td>*********</td>
+							</tr>
+							<tr>
+							<td>Eigenaar:</td>
+							<td>*********</td>
+							</tr>
+							<tr>
+							<td>Partij:</td>
+							<td>*********</td>
+							</tr>
+							<tr>
+							<td>Persoon:</td>
+							<td>*********</td>
+							</tr>
+							<!-- Contract do not need Adres [Maarten.D] -->
+							<!--<tr>
+							<td>Adres:</td>
+							<td>*********</td>
+							</tr>-->
+							</table>
+						</div>
+					</div>
+					<div>
+						<div id="divContractContact"></div>
+					</div>
+					<div>
+						<div id="divContractPeriod">
+							<table>
+								<tr>
+								<td>Start datum:</td>
+								<td>*********</td>
+								</tr>
+								<tr>
+								<td>Eind datum:</td>
+								<td>********* <img class="imgNotification" src="images/icon-confirm.gif"/></td>
+								</tr>
+								<tr>
+								<td>Datum ingevoerd:</td>
+								<td>*********</td>
+								</tr>
+								<tr>
+								<td>Datum gewijzigd:</td>
+								<td>********* </td>
+								</tr>
+								<tr>
+								<td>Opzeg termijn:</td>
+								<td>********* <img class="imgNotification"src="images/icon-error.gif"/></td>
+								</tr>
+								<tr>
+								<td>Verleng termijn:</td>
+								<td>*********</td>
+								</tr>
+								<tr>
+								<td>Looptijd contract:</td>
+								<td>*********</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div>
+						<div id="divContractDocuments">
+							<div id="divDocumentList"></div>
+						</div>
+					</div>
+				</div>
+				<div id="divDetailsActions">
+					<input type="hidden" id="detailEditStatus" value="0" />
+					<button id="btnEdit">Aanpassen</button>
+					<button id="btnCancelEdit" style="display: none;">Cancel</button>
+				</div>
 			<!-- Pop-ups -->
-			<div id="divSetNotification" style="display: none;">
-			<table>
-			<tr>
-			<td>Date</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>Set by</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>For user</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>Repeat term</td>
-			<td>*********</td>
-			</tr>
-			<tr>
-			<td>Note</td>
-			<td>*********</td>
-			</tr>
-			</table>
-			</div>
+
 			</div>
 		</script>
 	</body>

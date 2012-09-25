@@ -80,6 +80,10 @@ header, #divAddHeader img {
     padding: 10px 5px 10px 5px;
 }
 
+#divContractDocumentInputs{
+    padding-top: 20px;
+}
+
 #divStep1, #divStep2, #divStep3, #divStep4, #divStep5 {
     padding: 20px 10px 20px 10px;
 }
