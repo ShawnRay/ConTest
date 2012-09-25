@@ -64,17 +64,17 @@ function onSelect(e) {
 	if ($(e.item).children(".k-link").text() == 'Nieuw') {
 		if ($(e.item).parents("div").prev("span").text() == 'Contracten') {
 			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewContract.html?openCreatePopup=1");
-			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewContract.html");
+			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewContract.html?openCreatePopup=1");
 		}
 
 		if ($(e.item).parents("div").prev("span").text() == 'Partij') {
 			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewParty.html?openCreatePopup=1");
-			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewParty.html");
+			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewParty.html?openCreatePopup=1");
 		}
 
 		if ($(e.item).parents("div").prev("span").text() == 'Persoon') {
 			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewPerson.html?openCreatePopup=1");
-			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewPerson.html");
+			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewPerson.html?openCreatePopup=1");
 		}
 	}
 
@@ -93,18 +93,22 @@ function onSelect(e) {
 		});
 		
 		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewNotification.html");
+		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewNotification.html");
 
 		return false;
 	}
 	
+	if ($(e.item).children(".k-link").text() == 'Zoek') {
+		window.location.replace("http://127.0.0.1:8020/ConDemos/Search.html");
+		//window.location.replace("http://192.168.166.16/ContractDemo/Search.html");
+	}
 	
 	if ($(e.item).children(".k-link").text() == 'Track and Trace') {
 		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewTrackAndTrace.html");
-		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewContract.html");
+		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewTrackAndTrace.html");
 	}
 
 	if ($(e.item).children(".k-link").html() == $('#menu-images li:last span').html()) {
-
 		$.gritter.add({
 			// (string | mandatory) the heading of the notification
 			title : 'Notification Center',

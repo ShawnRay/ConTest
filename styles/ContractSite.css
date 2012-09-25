@@ -26,15 +26,14 @@ footer {
     width: 100%;
     padding: 20px 0px 0px 0px;
     background-color: #D6D6D6;
-    
     /*position: absolute;
-    bottom:0px; 
-    height:60px; 
-    left:0px; 
-    overflow:hidden;*/
+     bottom:0px;
+     height:60px;
+     left:0px;
+     overflow:hidden;*/
 }
 
-a, img{
+a, img {
     cursor: pointer;
     cursor: hand;
 }
@@ -42,7 +41,7 @@ a, img{
 #menu-images {
 }
 
-#menu-images img{
+#menu-images img {
     width: 32px;
     height: 32px;
 }
@@ -67,7 +66,7 @@ header, #divAddHeader img {
     padding: 15px 0px 30px 30px;
 }
 
-#divOverviewActions{
+#divOverviewActions {
     padding: 10px 5px 10px 5px;
 }
 
@@ -75,15 +74,24 @@ header, #divAddHeader img {
     padding: 10px 5px 10px 5px;
 }
 
-#divDetailsActions{
+#divDetailsActions {
     text-align: right;
     padding: 10px 5px 10px 5px;
 }
 
-#divContractDocumentInputs{
+#divContractDocumentInputs {
     padding-top: 20px;
 }
 
 #divStep1, #divStep2, #divStep3, #divStep4, #divStep5 {
     padding: 20px 10px 20px 10px;
+}
+
+#divSearch {
+    list-style-type: none;
+    padding: 10px 0px 10px 0px;
+}
+
+#divSearch .searchLeft {
+    float: left;
 }

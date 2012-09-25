@@ -493,7 +493,7 @@ $(document).ready(function () {
     });
 
     $("#dialog-form").dialog({
-        title: 'Niew Partij',
+        title: 'Niew Personen',
         autoOpen: false,
         height: 500,
         width: 800,
