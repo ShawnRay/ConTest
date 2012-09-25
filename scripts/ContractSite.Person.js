@@ -247,25 +247,41 @@
             }
         }
     });
-
-    $("#divContractContact").kendoGrid({
-        dataSource: dataSource,
-        pageable: true,
-        toolbar: ["create"],
+    
+    $("#divPersonContract").kendoGrid({
+        dataSource : {
+			data : createContractRandomData(1),
+			schema : {
+				model : {
+					fields : {
+						FirstName : {
+							type : "string"
+						},
+						BirthDate : {
+							type : "date"
+						},
+						CreateDate : {
+							type : "date"
+						}
+					}
+				}
+			},
+			pageSize : 3
+		},
+        scrollable : true,
+		pageable : true,
         columns: [{
-            field: "ProductName",
-            title: "Achtemaan"
+            field: "FirstName",
+            title: "ContractNaam"
         }, {
-            field: "ProductName",
-            title: "Voornaam"
+            field: "BirthDate",
+            title: "Startdatum",
+            template : '#= kendo.toString(BirthDate,"MM/dd/yyyy") #'
         }, {
-            field: "ProductName",
-            title: "Functie"
-        }, {
-            command: ["edit", "destroy"],
-            title: "&nbsp;"
-        }],
-        editable: "inline"
+            field: "CreateDate",
+            title: "Einddatum",
+            template : '#= kendo.toString(BirthDate,"MM/dd/yyyy") #'
+        }]
     });
 }
 

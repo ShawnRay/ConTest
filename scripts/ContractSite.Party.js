@@ -249,24 +249,67 @@
 	});
 
 	$("#divContractContact").kendoGrid({
-		dataSource : dataSource,
+        dataSource: dataSource,
+        pageable: true,
+        toolbar: ["create"],
+        columns: [{
+            field: "ProductName",
+            title: "Achtemaan"
+        }, {
+            field: "ProductName",
+            title: "Voornaam"
+        }, {
+            field: "ProductName",
+            title: "Functie"
+        }, {
+            field: "ProductName",
+            title: "E-mailadres"
+        }, {
+            field: "ProductName",
+            title: "Tel. nummer"
+        },
+         {
+             command: ["edit", "destroy"],
+             title: "&nbsp;"
+         }],
+        editable: "inline"
+    });
+
+    $("#divPartyContract").kendoGrid({
+    	dataSource : {
+			data : createContractRandomData(1),
+			schema : {
+				model : {
+					fields : {
+						FirstName : {
+							type : "string"
+						},
+						BirthDate : {
+							type : "date"
+						},
+						CreateDate : {
+							type : "date"
+						}
+					}
+				}
+			},
+			pageSize : 3
+		},
+        scrollable : true,
 		pageable : true,
-		toolbar : ["create"],
-		columns : [{
-			field : "ProductName",
-			title : "Achtemaan"
-		}, {
-			field : "ProductName",
-			title : "Voornaam"
-		}, {
-			field : "ProductName",
-			title : "Functie"
-		}, {
-			command : ["edit", "destroy"],
-			title : "&nbsp;"
-		}],
-		editable : "inline"
-	});
+        columns: [{
+            field: "FirstName",
+            title: "ContractNaam"
+        }, {
+            field: "BirthDate",
+            title: "Startdatum",
+            template : '#= kendo.toString(BirthDate,"MM/dd/yyyy") #'
+        }, {
+            field: "CreateDate",
+            title: "Einddatum",
+            template : '#= kendo.toString(BirthDate,"MM/dd/yyyy") #'
+        }]
+    });
 }
 
 $(document).ready(function () {
@@ -277,7 +320,7 @@ $(document).ready(function () {
 
     $("#labelStepTitle").html(" 1: Partij of Persoon");
 
-    $("#div1").kendoGrid({
+    $("#divCreatePartyContactPerson").kendoGrid({
         dataSource: {
             data: createContactPersonRandomData(1),
             pageSize: 10,
