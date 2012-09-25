@@ -248,6 +248,57 @@
         }
     });
     
+    $("#divCreatePersonAddress").kendoGrid({
+       dataSource: {
+           data: createAdresRandomData(5),
+           pageSize: 10,
+           schema: {
+               model: {
+                   fields: {
+                       Adres: {
+                           type: "string"
+                       },
+                       Postbus: {
+                           type: "string"
+                       },
+                       Postcode: {
+                           type: "string"
+                       },
+                       Plaats: {
+                           type: "string"
+                       },
+                       Land: {
+                           type: "string"
+                       }
+                   }
+               }
+           }
+       },
+       scrollable: true,
+       pageable: true,
+       toolbar: ["create"],
+       editable: "inline",
+       columns: [{
+           field: "Adres",
+           title: "Adres"
+       }, {
+           field: "Postbus",
+           title: "Post bus"
+       }, {
+           field: "Postcode",
+           title: "Post Code"
+       }, {
+           field: "Plaats",
+           title: "Plaats"
+       }, {
+           field: "Land",
+           title: "Land"
+       }, {
+           command: ["edit", "destroy"],
+           title: "&nbsp;"
+       }]
+   });
+    
     $("#divPersonContract").kendoGrid({
         dataSource : {
 			data : createContractRandomData(1),
@@ -365,16 +416,16 @@ $(document).ready(function () {
             field: "Adres",
             title: "Adres"
         }, {
-            Field: "Postbus",
+            field: "Postbus",
             title: "Postbus"
         }, {
-            Field: "Postcode",
+            field: "Postcode",
             title: "Postcode"
         }, {
-            Field: "Plaats",
+            field: "Plaats",
             title: "Plaats"
         }, {
-            Field: "Land",
+            field: "Land",
             title: "Land"
         }, {
             command: ["edit", "destroy"],

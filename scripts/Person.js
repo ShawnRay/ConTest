@@ -48,34 +48,6 @@ function createContactPersonRandomData(count) {
     return data;
 }
 
-var Adres = ["XXXX", "OOOO"],
-    Postbus = ["Postbus"],
-    Postcode = ["123456789"],
-    Plaats = ["minhang", "pudong"],
-    Land = ["China", "Netherlands"];
-
-function createAdresRandomData(count) {
-    var data = [];
-
-    for (var i = 0; i < count; i++) {
-        var address = Adres[Math.floor(Math.random() * Adres.length)],
-            postbus = Postbus[Math.floor(Math.random() * Postbus.length)],
-            postcode = Postcode[Math.floor(Math.random() * Postcode.length)],
-            place = Plaats[Math.floor(Math.random() * Plaats.length)],
-            country = Land[Math.floor(Math.random() * Land.length)];
-
-        data.push({
-            Id: i + 1,
-            Adres: address,
-            Postbus: postbus,
-            Postcode: postcode,
-            Plaats: place,
-            Land: country
-        });
-    }
-    return data;
-}
-
 function generatePeople(itemCount, callback) {
     var data = [],
         delay = 25,

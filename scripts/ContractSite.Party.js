@@ -249,23 +249,47 @@
 	});
 
 	$("#divContractContact").kendoGrid({
-        dataSource: dataSource,
+        dataSource : {
+			data : createContactPersonRandomData(5),
+			schema : {
+				model : {
+					fields : {
+						FirstName : {
+							type : "string"
+						},
+            			LastName: {
+							type : "string"
+						},
+            			Department: {
+							type : "string"
+						},
+            			Email: {
+							type : "string"
+						},
+            			Telephone: {
+							type : "string"
+						}
+					}
+				}
+			},
+			pageSize : 5
+		},
         pageable: true,
         toolbar: ["create"],
         columns: [{
-            field: "ProductName",
+            field: "FirstName",
             title: "Achtemaan"
         }, {
-            field: "ProductName",
+            field: "LastName",
             title: "Voornaam"
         }, {
-            field: "ProductName",
+            field: "Department",
             title: "Functie"
         }, {
-            field: "ProductName",
+            field: "Email",
             title: "E-mailadres"
         }, {
-            field: "ProductName",
+            field: "Telephone",
             title: "Tel. nummer"
         },
          {
@@ -274,6 +298,57 @@
          }],
         editable: "inline"
     });
+    
+    $("#divCreatPartyAddress").kendoGrid({
+       dataSource: {
+           data: createAdresRandomData(5),
+           pageSize: 10,
+           schema: {
+               model: {
+                   fields: {
+                       Adres: {
+                           type: "string"
+                       },
+                       Postbus: {
+                           type: "string"
+                       },
+                       Postcode: {
+                           type: "string"
+                       },
+                       Plaats: {
+                           type: "string"
+                       },
+                       Land: {
+                           type: "string"
+                       }
+                   }
+               }
+           }
+       },
+       scrollable: true,
+       pageable: true,
+       toolbar: ["create"],
+       editable: "inline",
+       columns: [{
+           field: "Adres",
+           title: "Adres"
+       }, {
+           field: "Postbus",
+           title: "Post bus"
+       }, {
+           field: "Postcode",
+           title: "Post Code"
+       }, {
+           field: "Plaats",
+           title: "Plaats"
+       }, {
+           field: "Land",
+           title: "Land"
+       }, {
+           command: ["edit", "destroy"],
+           title: "&nbsp;"
+       }]
+   });
 
     $("#divPartyContract").kendoGrid({
     	dataSource : {
@@ -321,55 +396,54 @@ $(document).ready(function () {
     $("#labelStepTitle").html(" 1: Partij of Persoon");
 
     $("#divCreatePartyContactPerson").kendoGrid({
-        dataSource: {
-            data: createContactPersonRandomData(1),
-            pageSize: 10,
-            schema: {
-                model: {
-                    fields: {
-                       LastName: {
-                           type: "string"
-                       },
-                       FirstName: {
-                           type: "string"
-                       },
-                       Functie: {
-                           type: "string"
-                       },
-                       Email: {
-                           type: "string"
-                       },
-                       Telephone: {
-                           type: "string"
-                       }
-                    }
-                }
-           }
-       },
-       height: 300,
-       scrollable: true,
-       pageable: true,
-       toolbar: ["create"],
-       editable: "inline",
-       columns: [{
-           field: "LastName",
-           title: "Achternaam"
-       }, {
-           Field: "FirstName",
-           title: "Voornaam"
-       }, {
-           Field: "Functie",
-           title: "Functie"
-       }, {
-           Field: "Email",
-           title: "E-mailadres"
-       }, {
-           Field: "Telephone",
-           title: "Tel. nummer"
-       }, {
-           command: ["edit", "destroy"],
-           title: "&nbsp;"
-       }]
+        dataSource : {
+			data : createContactPersonRandomData(1),
+			schema : {
+				model : {
+					fields : {
+						FirstName : {
+							type : "string"
+						},
+            			LastName: {
+							type : "string"
+						},
+            			Department: {
+							type : "string"
+						},
+            			Email: {
+							type : "string"
+						},
+            			Telephone: {
+							type : "string"
+						}
+					}
+				}
+			},
+			pageSize : 5
+		},
+        pageable: true,
+        toolbar: ["create"],
+        columns: [{
+            field: "FirstName",
+            title: "Achtemaan"
+        }, {
+            field: "LastName",
+            title: "Voornaam"
+        }, {
+            field: "Department",
+            title: "Functie"
+        }, {
+            field: "Email",
+            title: "E-mailadres"
+        }, {
+            field: "Telephone",
+            title: "Tel. nummer"
+        },
+         {
+             command: ["edit", "destroy"],
+             title: "&nbsp;"
+         }],
+        editable: "inline"
    });
 
    $("#divAddress").kendoGrid({
@@ -407,16 +481,16 @@ $(document).ready(function () {
            field: "Adres",
            title: "Adres"
        }, {
-           Field: "Postbus",
-           title: "Postbus"
+           field: "Postbus",
+           title: "Post bus"
        }, {
-           Field: "Postcode",
-           title: "Postcode"
+           field: "Postcode",
+           title: "Post Code"
        }, {
-           Field: "Plaats",
+           field: "Plaats",
            title: "Plaats"
        }, {
-           Field: "Land",
+           field: "Land",
            title: "Land"
        }, {
            command: ["edit", "destroy"],
