@@ -120,7 +120,6 @@ function onSelect(e) {
 	}
 }
 
-
 $(document).ready(function() {
 	$("#menu-images").kendoMenu({
 		dataSource : [{
