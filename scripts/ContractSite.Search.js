@@ -1,50 +1,64 @@
 ﻿$(document).ready(function() {
-	
-	var availableContractStatus = [
-                        { text: "Alles", value: "1" },
-                        { text: "Expired", value: "2" },
-                        { text: "Not Expired", value: "3" }
-                    ];
 
-    $("#ddlContrtStatus").width(220).kendoComboBox({
+	var availableContractStatus = [{
+		text : "Alles",
+		value : "1"
+	}, {
+		text : "Expired",
+		value : "2"
+	}, {
+		text : "Not Expired",
+		value : "3"
+	}];
+
+	$("#ddlContrtStatus").width(220).kendoComboBox({
 		dataTextField : "text",
 		dataValueField : "value",
 		filter : "contains",
 		dataSource : availableContractStatus
-    });
-	
-	var availableContractType = [
-                        { text: "unknow", value: "1" },
-                        { text: "Expired", value: "2" },
-                        { text: "Not Expired", value: "3" }
-                    ];
+	});
 
-    $("#ddlContractType").width(220).kendoComboBox({
+	var availableContractType = [{
+		text : "unknow",
+		value : "1"
+	}, {
+		text : "Expired",
+		value : "2"
+	}, {
+		text : "Not Expired",
+		value : "3"
+	}];
+
+	$("#ddlContractType").width(220).kendoComboBox({
 		dataTextField : "text",
 		dataValueField : "value",
 		filter : "contains",
 		dataSource : availableContractType
-    });
-    
-    var availableContractEngineer = [
-                        { text: "unknow", value: "1" },
-                        { text: "Expired", value: "2" },
-                        { text: "Not Expired", value: "3" }
-                    ];
+	});
 
-    $("#ddlContractEngineer").width(220).kendoComboBox({
+	var availableContractEngineer = [{
+		text : "unknow",
+		value : "1"
+	}, {
+		text : "Expired",
+		value : "2"
+	}, {
+		text : "Not Expired",
+		value : "3"
+	}];
+
+	$("#ddlContractEngineer").width(220).kendoComboBox({
 		dataTextField : "text",
 		dataValueField : "value",
 		filter : "contains",
 		dataSource : availableContractEngineer
-    });
-	
+	});
+
 	$("#datepickerVan").kendoDatePicker();
 	$("#datepickerTot").kendoDatePicker();
-	
-	
+
 	$("#btnSearch").button();
-	
+
 	$("#btnSearch").click(function() {
 		$("#divSearch").toggle();
 		$("#divResult").toggle();
@@ -103,4 +117,8 @@
 			title : "Contactpersoon"
 		}]
 	});
+
+	if (getParameterByName('openGetResult') == "1") {
+		$('#btnSearch').trigger('click');
+	}
 });
