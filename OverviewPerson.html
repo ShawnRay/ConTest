@@ -95,8 +95,8 @@
 							<td>
 							<input type="text" />
 							</td>
-							<td></td>
-							<td></td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
 						</tr>
 						<tr>
 							<td> Voornaam </td>
@@ -131,7 +131,7 @@
 						<tr>
 							<td> Titel </td>
 							<td>
-							<input id="Titel" value="1" />
+							<input id="ddlTitel" />
 							</td>
 							<td> Website </td>
 							<td>
@@ -141,7 +141,7 @@
 						<tr>
 							<td> Geslacht </td>
 							<td>
-							<input id="Sex" value="1" />
+							<input id="ddlSex" />
 							</td>
 							<td> Opmerking </td>
 							<td>
@@ -164,27 +164,14 @@
 							<td> &nbsp; </td>
 							<td> &nbsp; </td>
 						</tr>
-						<tr>
-							<td> KvK nummer </td>
-							<td>
-							<input type="text" />
-							</td>
-							<td> &nbsp; </td>
-							<td> &nbsp; </td>
-						</tr>
-						<tr>
-							<td> BTW nummer </td>
-							<td>
-							<input type="text" />
-							</td>
-							<td> &nbsp; </td>
-							<td> &nbsp; </td>
-						</tr>
 					</table>
 				</div>
 			</div>
 			<div id="divStep2">
-				<div id="divAddress"></div>
+				<div id="divCreatePersonContactPerson">&nbsp;</div>
+			</div>
+			<div id="divStep3">
+				<div id="divAddress">&nbsp;</div>
 			</div>
 			<div id="divActions">
 				<input type="hidden" id="stepRecord" value="0" />
@@ -197,6 +184,9 @@
 			<ul>
 			<li class="k-state-active">
 			Algemeen
+			</li>
+			<li>
+			Contact personen
 			</li>
 			<li>
 			Adres
@@ -318,52 +308,28 @@
 			&nbsp;
 			</td>
 			</tr>
-			<tr>
-			<td>
-			KvK nummer
-			</td>
-			<td>
-			<input type="text" />
-			</td>
-			<td>
-			&nbsp;
-			</td>
-			<td>
-			&nbsp;
-			</td>
-			</tr>
-			<tr>
-			<td>
-			BTW nummer
-			</td>
-			<td>
-			<input type="text" />
-			</td>
-			<td>
-			&nbsp;
-			</td>
-			<td>
-			&nbsp;
-			</td>
-			</tr>
 			</table>
 			</div>
 			</div>
+			<div>
+			<div id="divContractContact"></div>
+			</div>
+			<div>
 			<div>
 			<div id="divContractPeriod">
 				<div id="divCreatePersonAddress"></div>
 			</div>
 			</div>
+			</div>
 			<div>
 				<div id="divPersonContract"></div>
-			</div>
-			</div>
 			<div id="divDetailsActions">
 			<input type="hidden" id="detailEditStatus" value="0" />
 			<button id="btnEdit">
 			Aanpassen
 			</button>
 			<button id="btnCancelEdit" style="display: none;">Cancel</button>
+			</div>
 			</div>
 			<!-- Pop-ups -->
 			<div id="divSetNotification" style="display: none;">
@@ -395,6 +361,9 @@
 			Help Content of Contract Module!
 			</div>
 			</div>
+			
+			
+			
 		</script>
 	</body>
 </html>

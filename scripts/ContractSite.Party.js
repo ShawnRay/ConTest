@@ -388,6 +388,42 @@
 }
 
 $(document).ready(function () {
+	
+	$("#CreateContact").click(function(){
+		$("#divCreateContact").hide();
+		$("#divCreateContactPerson").show();
+	});
+	
+	$("#btnCancle").click(function(){
+		$("#divCreateContact").show();
+		$("#divCreateContactPerson").hide();
+	});
+	
+	$("#btnSave").click(function(){
+		$("#divCreateContact").show();
+		$("#divCreateContactPerson").hide();
+		
+		var grid = $("#divCreatePersonContactPerson").data("kendoGrid");
+		
+		grid.dataSource.add( { 
+			FirstName: "Jackey", 
+			LastName: "Zhuang", 
+			Functie : "The Beagle Armada",
+			Email:"Jackey.Zhuang@thebeaglearmada.nl",
+			Telephone:"13641934744"} );
+	});
+	
+	var availableContactPerson = [
+                        { text: "Jackey.Zhuang", value: "1" }
+                    ];
+
+    $("#dllContactPerson").width(220).kendoComboBox({
+		dataTextField : "text",
+		dataValueField : "value",
+		filter : "contains",
+		dataSource : availableContactPerson
+    });
+	
     $("#divStep2").hide();
     $("#divStep3").hide();
     $("#divStep4").hide();

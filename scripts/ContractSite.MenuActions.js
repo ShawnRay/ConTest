@@ -23,57 +23,57 @@ function onClose(e) {
 
 function onSelect(e) {
 	if ($(e.item).children(".k-link").text() == 'Home') {
-		window.location.replace("http://127.0.0.1:8020/ConDemos/Home.html");
+		window.location.replace("http://127.0.0.1:8020/ConTest/Home.html");
 		//window.location.replace("http://192.168.166.16/ContractDemo/Home.html");
 	}
 
 	if ($(e.item).children(".k-link").text() == 'Contracten') {
-		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewContract.html");
+		window.location.replace("http://127.0.0.1:8020/ConTest/OverviewContract.html");
 		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewContract.html");
 	}
 	
 	if ($(e.item).children(".k-link").text() == 'Partij') {
-		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewParty.html");
+		window.location.replace("http://127.0.0.1:8020/ConTest/OverviewParty.html");
 		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewParty.html");
 	}
 
 	if ($(e.item).children(".k-link").text() == 'Persoon') {
-		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewPerson.html");
+		window.location.replace("http://127.0.0.1:8020/ConTest/OverviewPerson.html");
 		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewPerson.html");
 	}
 
 	if ($(e.item).children(".k-link").text() == 'Bewerk/Bekijk') {
 		if ($(e.item).parents("div").prev("span").text() == 'Contracten') {
-			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewContract.html");
+			window.location.replace("http://127.0.0.1:8020/ConTest/OverviewContract.html");
 			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewContract.html");
 
 			$("#checkSource").val("0");
 		}
 
 		if ($(e.item).parents("div").prev("span").text() == 'Partij') {
-			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewParty.html");
+			window.location.replace("http://127.0.0.1:8020/ConTest/OverviewParty.html");
 			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewParty.html");
 		}
 
 		if ($(e.item).parents("div").prev("span").text() == 'Persoon') {
-			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewPerson.html");
+			window.location.replace("http://127.0.0.1:8020/ConTest/OverviewPerson.html");
 			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewPerson.html");
 		}
 	}
 
 	if ($(e.item).children(".k-link").text() == 'Nieuw') {
 		if ($(e.item).parents("div").prev("span").text() == 'Contracten') {
-			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewContract.html?openCreatePopup=1");
+			window.location.replace("http://127.0.0.1:8020/ConTest/OverviewContract.html?openCreatePopup=1");
 			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewContract.html?openCreatePopup=1");
 		}
 
 		if ($(e.item).parents("div").prev("span").text() == 'Partij') {
-			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewParty.html?openCreatePopup=1");
+			window.location.replace("http://127.0.0.1:8020/ConTest/OverviewParty.html?openCreatePopup=1");
 			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewParty.html?openCreatePopup=1");
 		}
 
 		if ($(e.item).parents("div").prev("span").text() == 'Persoon') {
-			window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewPerson.html?openCreatePopup=1");
+			window.location.replace("http://127.0.0.1:8020/ConTest/OverviewPerson.html?openCreatePopup=1");
 			//window.location.replace("http://192.168.166.16/ContractDemo/OverviewPerson.html?openCreatePopup=1");
 		}
 	}
@@ -92,19 +92,19 @@ function onSelect(e) {
 			time : '3000'
 		});
 		
-		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewNotification.html");
+		window.location.replace("http://127.0.0.1:8020/ConTest/OverviewNotification.html");
 		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewNotification.html");
 
 		return false;
 	}
 	
 	if ($(e.item).children(".k-link").text() == 'Zoek') {
-		window.location.replace("http://127.0.0.1:8020/ConDemos/Search.html");
+		window.location.replace("http://127.0.0.1:8020/ConTest/Search.html");
 		//window.location.replace("http://192.168.166.16/ContractDemo/Search.html");
 	}
 	
 	if ($(e.item).children(".k-link").text() == 'Track and Trace') {
-		window.location.replace("http://127.0.0.1:8020/ConDemos/OverviewTrackAndTrace.html");
+		window.location.replace("http://127.0.0.1:8020/ConTest/OverviewTrackAndTrace.html");
 		//window.location.replace("http://192.168.166.16/ContractDemo/OverviewTrackAndTrace.html");
 	}
 

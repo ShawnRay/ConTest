@@ -248,6 +248,57 @@
         }
     });
     
+    $("#divContractContact").kendoGrid({
+        dataSource : {
+			data : createContactPersonRandomData(5),
+			schema : {
+				model : {
+					fields : {
+						FirstName : {
+							type : "string"
+						},
+            			LastName: {
+							type : "string"
+						},
+            			Functie: {
+							type : "string"
+						},
+            			Email: {
+							type : "string"
+						},
+            			Telephone: {
+							type : "string"
+						}
+					}
+				}
+			},
+			pageSize : 5
+		},
+        pageable: true,
+        toolbar: ["create"],
+        columns: [{
+            field: "FirstName",
+            title: "Achtemaan"
+        }, {
+            field: "LastName",
+            title: "Voornaam"
+        }, {
+            field: "Functie",
+            title: "Functie"
+        }, {
+            field: "Email",
+            title: "E-mailadres"
+        }, {
+            field: "Telephone",
+            title: "Tel. nummer"
+        },
+         {
+             command: ["edit", "destroy"],
+             title: "&nbsp;"
+         }],
+        editable: "inline"
+    });
+    
     $("#divCreatePersonAddress").kendoGrid({
        dataSource: {
            data: createAdresRandomData(5),
@@ -337,6 +388,61 @@
 }
 
 $(document).ready(function () {
+	
+	$("#divCreatePersonContactPerson").kendoGrid({
+        dataSource : {
+			data : createContactPersonRandomData(1),
+			schema : {
+				model : {
+					fields : {
+						FirstName : {
+							type : "string"
+						},
+            			LastName: {
+							type : "string"
+						},
+            			Functie: {
+							type : "string"
+						},
+            			Email: {
+							type : "string"
+						},
+            			Telephone: {
+							type : "string"
+						}
+					}
+				}
+			},
+			pageSize : 5
+		},
+		edit: function(e){
+			
+		},
+        pageable: true,
+        toolbar: ["create"],
+        columns: [{
+            field: "FirstName",
+            title: "Achtemaan",
+        }, {
+            field: "LastName",
+            title: "Voornaam"
+        }, {
+            field: "Functie",
+            title: "Functie"
+        }, {
+            field: "Email",
+            title: "E-mailadres"
+        }, {
+            field: "Telephone",
+            title: "Tel. nummer"
+        },
+         {
+             command: ["edit", "destroy"],
+             title: "&nbsp;"
+         }],
+        editable: "inline"
+   });
+	
     $("#divDemoPersonContracsList").kendoGrid({
         dataSource: {
             data: createPersonRandomData(50),
@@ -433,31 +539,51 @@ $(document).ready(function () {
         }]
     });
 
-    var sexdata = [
-                        { text: " ", value: "1" },
+    var availableSex = [
+                        { text: "unknow", value: "1" },
                         { text: "Man", value: "2" },
                         { text: "Vrouw", value: "3" }
                     ];
 
-    $("#Sex").kendoDropDownList({
-        dataTextField: "text",
-        dataValueField: "value",
-        dataSource: sexdata,
-        index: 0
+    $("#ddlSex").width(220).kendoComboBox({
+		dataTextField : "text",
+		dataValueField : "value",
+		filter : "contains",
+		dataSource : availableSex
     });
 
-    var titledata = [
-                        { text: " ", value: "1" },
-                        { text: "Titel1", value: "2" },
-                        { text: "Titel2", value: "3" }
-                    ];
+	var availableTitels = [{
+		text : "Dr",
+		value : "1"
+	}, {
+		text : "Mr",
+		value : "2"
+	}, {
+		text : "Ir",
+		value : "3"
+	}, {
+		text : "Drs",
+		value : "4"
+	}, {
+		text : "Prof",
+		value : "5"
+	}, {
+		text : "Ing",
+		value : "6"
+	}, {
+		text : "MA",
+		value : "7"
+	}, {
+		text : "BA",
+		value : "8"
+	}];
 
-    $("#Titel").kendoDropDownList({
-        dataTextField: "text",
-        dataValueField: "value",
-        dataSource: titledata,
-        index: 0
-    });
+	$("#ddlTitel").width(220).kendoComboBox({
+		dataTextField : "text",
+		dataValueField : "value",
+		filter : "contains",
+		dataSource : availableTitels
+	});
 
     $("#datepicker").kendoDatePicker();
 
@@ -475,6 +601,7 @@ $(document).ready(function () {
     $(".imgArchiveConfirm").click(function () {
         $("#divArchiveConfirmation").dialog('open');
     });
+
 
     $("#divDeleteConfirmation").dialog({
         title: 'Contract',
@@ -512,7 +639,6 @@ $(document).ready(function () {
                     $(".ui-dialog-buttonset span:eq(1)").html('Volgende');
                     return;
                 }
-
                 if ($("#stepRecord").val() == "2") {
                     $("#divStep1").hide();
                     $("#divStep2").show();
@@ -520,8 +646,9 @@ $(document).ready(function () {
                     $("#divStep4").hide();
 
                     $("#stepRecord").val("1");
-                    $("#labelStepTitle").html(" 2: Adres");
+                    $("#labelStepTitle").html(" 2: Contact Person ");
 
+					$(".ui-dialog-buttonset span:eq(1)").html('Volgende');
                     return;
                 }
             },
@@ -534,14 +661,26 @@ $(document).ready(function () {
 
                     $("#stepRecord").val("1");
 
-                    $("#labelStepTitle").html(" 2: Adres");
+                    $("#labelStepTitle").html(" 2: Contact Person ");
+
+                    return;
+                }
+				
+				if ($("#stepRecord").val() == "1") {
+                    $("#divStep1").hide();
+                    $("#divStep2").hide();
+                    $("#divStep3").show();
+                    $("#divStep4").hide();
+
+                    $("#stepRecord").val("2");
+
+                    $("#labelStepTitle").html(" 3: Adres ");
 
                     $(".ui-dialog-buttonset span:eq(1)").html('Finish');
                     return;
                 }
 
-
-                if ($("#stepRecord").val() == "1") {
+                if ($("#stepRecord").val() == "2") {
                     $.gritter.add({
                         // (string | mandatory) the heading of the notification
                         title: 'Notification Center',
