@@ -79,16 +79,19 @@ $(document).ready(function() {
 	$(".tableTileItems tr td a").each(function() {
 		if ($(this).text() == 'Contract') {
 			$(this).attr('href', 'http://127.0.0.1:8020/ConTest/OverviewContract.html?openCreatePopup=1');
+			//$(this).attr('href', 'http://192.168.166.16/ContractDemo/OverviewPerson.html?openCreatePopup=1');
 			$(this).button();
 		}
 
 		if ($(this).text() == 'Partij') {
 			$(this).attr('href', 'http://127.0.0.1:8020/ConTest/OverviewParty.html?openCreatePopup=1');
+			//$(this).attr('href', 'http://192.168.166.16/ContractDemo/OverviewPerson.html?openCreatePopup=1');
 			$(this).button();
 		}
 
 		if ($(this).text() == 'Persoon') {
 			$(this).attr('href', 'http://127.0.0.1:8020/ConTest/OverviewPerson.html?openCreatePopup=1');
+			//$(this).attr('href', 'http://192.168.166.16/ContractDemo/OverviewPerson.html?openCreatePopup=1');
 			$(this).button();
 		}
 	});
@@ -97,7 +100,7 @@ $(document).ready(function() {
 	
 	$('#btnSearch').click(function(){
 		window.location.replace("http://127.0.0.1:8020/ConTest/Search.html?openGetResult=1");
-		//window.location.replace("http://192.168.166.16/ContractDemo/Search.html");
+		//window.location.replace("http://192.168.166.16/ContractDemo/Search.html?openGetResult=1");
 	});
 
 	var chart3 = new AwesomeChart('chartCanvas3');
@@ -111,4 +114,7 @@ $(document).ready(function() {
 	
 	$("#tblNotifications tr td a").attr('href', 'http://127.0.0.1:8020/ConTest/OverviewNotification.html');
 	$("#tblContracts tr td a").attr('href', 'http://127.0.0.1:8020/ConTest/OverviewContract.html');
+	
+	//$("#tblNotifications tr td a").attr('href', 'http://192.168.166.16/ContractDemo/OverviewNotification.html');
+	//$("#tblContracts tr td a").attr('href', 'http://192.168.166.16/ContractDemo/OverviewContract.html');
 });
