@@ -394,7 +394,7 @@ $(document).ready(function () {
     $("#divStep4").hide();
     $("#stepRecord").val("0");
 
-    $("#labelStepTitle").html(" 1: Partij of Persoon");
+    $("#labelStepTitle").html(" 1: Algemene informatie");
 
     $("#divCreatePartyContactPerson").kendoGrid({
         dataSource : {
