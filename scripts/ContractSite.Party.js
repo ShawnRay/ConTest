@@ -574,7 +574,7 @@ $(document).ready(function () {
     });
 
     $("#dialog-form").dialog({
-        title: 'Niew Partij',
+        title: 'Nieuwe Partij',
         autoOpen: false,
         height: 500,
         width: 800,

@@ -620,7 +620,7 @@ $(document).ready(function () {
     });
 
     $("#dialog-form").dialog({
-        title: 'Niew Personen',
+        title: 'Nieuwe Persoon',
         autoOpen: false,
         height: 500,
         width: 800,
