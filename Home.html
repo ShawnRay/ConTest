@@ -22,13 +22,13 @@
 
 		<style>
             .divHomeTiles {
-                margin-left: 20%;
-                margin-right: 20%;
+                margin-left: 10%;
+                margin-right: 10%;
                 margin-top: 10px;
                 margin-bottom: 20px;
                 padding-top: 10px;
                 clear: both;
-                width: 60%;
+                width: 80%;
             }
             
             .tableTileItems {
@@ -90,9 +90,10 @@
 				<table class='tableTileItems'>
 					<tr>
 						<th><img src="images/Black_circle/rect_search.png" /></th>
-						<th colspan="3" style="width: 100%">Zoek</th>
+						<th colspan="4" style="width: 100%">Zoek</th>
 					</tr>
 					<tr>
+						<td></td>
 						<td>Contract status</td>
 						<td>
 						<input id="ddlContrtStatus"/>
@@ -103,6 +104,7 @@
 						</td>
 					</tr>
 					<tr>
+						<td></td>
 						<td>Contract type</td>
 						<td>
 						<input id="ddlContractType" type="text"/>
@@ -113,6 +115,7 @@
 						</td>
 					</tr>
 					<tr>
+						<td></td>
 						<td>Partner naam</td>
 						<td>
 						<input type="text"/>
@@ -123,6 +126,7 @@
 						</td>
 					</tr>
 					<tr>
+						<td></td>
 						<td>Looptijd</td>
 						<td colspan="3">van
 						<input id="datepickerVan" />
@@ -131,21 +135,21 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="4" style="text-align: right;"><input id="btnSearch" value="Zoek" type="button" /></td>
+						<td colspan="5" style="text-align: right;"><input id="btnSearch" value="Zoek" type="button" /></td>
 					</tr>
 				</table>
 			</div>
 		</div>
 		<div class="divHomeTiles">
-			<div style="float: left; width: 38%;">
+			<div style="float: left; width: 28%;">
 				<table class='tableTileItems'>
 					<tr>
 						<th><img src="images/Black_circle/newspaper2.png" /></th>
 						<th style="width: 100%">Status Contracten</th>
 					</tr>
 					<tr>
-						<td colspan="2">
-							<canvas height="400" width="400" id="chartCanvas3">
+						<td colspan="2" style="text-align: center;">
+							<canvas height="220" width="220" id="chartCanvas3">
                     			Your web-browser does not support the HTML 5 canvas element.
                 			</canvas>
 						</td>
@@ -153,7 +157,7 @@
 				</table>
 			</div>
 			<div style="float: left; width: 1%;">&nbsp;</div>
-			<div style="float: left; width: 30%;">
+			<div style="float: left; width: 36%;">
 				<table id="tblNotifications" class='tableTileItems dataDemo'>
 					<tr>
 						<th><img src="images/Black_circle/alarm.png" /></th>
@@ -182,7 +186,7 @@
 				</table>
 			</div>
 			<div style="float: left; width: 1%;">&nbsp;</div>
-			<div style="float: left; width: 30%;">
+			<div style="float: left; width: 34%;">
 				<table id="tblContracts" class='tableTileItems dataDemo'>
 					<tr>
 						<th><img src="images/Black_circle/folder.png" /></th>
