@@ -320,27 +320,27 @@ $(document).ready(function() {
 
 	$("#divDemoContracsList").kendoGrid({
 		dataSource : {
-			data : createRandomData(50),
+			data : createContractRandomData(50),
 			schema : {
 				model : {
 					fields : {
-						FirstName : {
+						ContractType : {
 							type : "string"
 						},
-						LastName : {
+						ContractName : {
 							type : "string"
 						},
-						City : {
+						Party : {
 							type : "string"
 						},
-						Title : {
-							type : "string"
-						},
-						BirthDate : {
+						StartDate : {
 							type : "date"
 						},
-						Age : {
-							type : "number"
+						EndDate : {
+							type : "date"
+						},
+						ContactPerson : {
+							type : "string"
 						}
 					}
 				}
@@ -356,24 +356,24 @@ $(document).ready(function() {
 		scrollable : true,
 		pageable : true,
 		columns : [{
-			field : "FirstName",
+			field : "ContractType",
 			title : "Contract soort"
 		}, {
-			field : "LastName",
+			field : "ContractName",
 			title : "Contract naam"
 		}, {
-			field : "City",
+			field : "Party",
 			title : "Partij"
 		}, {
-			field : "BirthDate",
+			field : "StartDate",
 			title : "Start datum",
-			template : '#= kendo.toString(BirthDate,"MM/dd/yyyy") #'
+			template : '#= kendo.toString(StartDate,"MM/dd/yyyy") #'
 		}, {
-			field : "BirthDate",
+			field : "EndDate",
 			title : "Eind datum",
-			template : '#= kendo.toString(BirthDate,"MM/dd/yyyy") #'
+			template : '#= kendo.toString(EndDate,"MM/dd/yyyy") #'
 		}, {
-			field : "Title",
+			field : "ContactPerson",
 			title : "Contactpersoon"
 		}, {
 			title : " ",
@@ -389,15 +389,7 @@ $(document).ready(function() {
 	//$(".imgArchiveConfirm").click(function() {
 	//	$("#divArchiveConfirmation").dialog('open');
 	//});
-
-	$("#divDeleteConfirmation").dialog({
-		title : 'Contract',
-		autoOpen : false,
-		height : 120,
-		width : 460,
-		modal : true
-	});
-
+	
 	$("#divArchiveConfirmation").dialog({
 		title : 'Contract',
 		autoOpen : false,

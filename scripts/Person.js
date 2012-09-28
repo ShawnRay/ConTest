@@ -20,10 +20,10 @@ function createPersonRandomData(count) {
     return data;
 }
 
-var Achternaam = ["Jackey", "Dennis"],
-    Voornaam = ["Zhuang", "Klop"],
+var Achternaam = ["Duijndam", "Klop","Vennix"],
+    Voornaam = ["Maarten", "Dennis","Gijs"],
     Functie = ["Implementatie consultant"],
-    Email = ["Jackey.Zhuang@thebeaglearmada.nl", "Dennis.Klop@thebeaglearmada.nl"],
+    Email = ["M.D@thebeaglearmada.nl", "D.K@thebeaglearmada.nl","M.R@thebeaglearmada.nl"],
     Telephones = ["12345678", "87654321"];
 
 function createContactPersonRandomData(count) {

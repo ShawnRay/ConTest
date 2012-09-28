@@ -196,4 +196,35 @@ $(document).ready(function() {
 			$('#btnCreate').trigger('click');
 		}
 	}
+	
+	$("#divDeleteConfirmation").dialog({
+		title : 'Contracten Module',
+		autoOpen : false,
+		height : 160,
+		width : 460,
+		modal : true,
+		buttons : {
+			"Ja" : function() {
+				$.gritter.add({
+					// (string | mandatory) the heading of the notification
+					title : 'Notification Center',
+					// (string | mandatory) the text inside the notification
+					text : 'It is still actived. Can not be deleted! Plese Contact Administrator if u really need delete it.',
+					// (string | optional) the image to display on the left
+					image : 'images/White_circle/alarm.png',
+					// (bool | optional) if you want it to fade out on its own or just sit there
+					sticky : false,
+					// (int | optional) the time you want it to be alive for before fading out
+					time : '3000'
+				});
+				
+				$("#divDeleteConfirmation").dialog('close');
+
+				return false;
+			},
+			"Nee" : function() {
+				$("#divDeleteConfirmation").dialog('close');
+			}
+		}
+	});
 });
