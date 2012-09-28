@@ -499,7 +499,7 @@ $(document).ready(function () {
        }]
    });
 
-    $("#divDemoPartyContracsList").kendoGrid({
+    $("#divDemoPartyList").kendoGrid({
         dataSource: {
             data: createPartyRandomData(50),
             schema: {
@@ -528,7 +528,6 @@ $(document).ready(function () {
         dataBound: function () {
             //this.expandRow(this.tbody.find("tr.k-master-row").first());
         },
-        editable: "inline",
         scrollable: true,
         pageable: true,
         columns: [{
@@ -544,8 +543,9 @@ $(document).ready(function () {
             field: "Contactperson",
             title: "Contactperson"
         }, {
-            command: ["edit", "destroy"],
-            title: "&nbsp;"
+            title : " ",
+			width : 50,
+			template : "<img class='imgDeleteConfirm' src='images/delete.png' rel='delete' />"
         }]
     });
 
