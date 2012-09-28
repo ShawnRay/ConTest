@@ -79,13 +79,13 @@ $(document).ready(function() {
 	$(".tableTileItems tr td a").each(function() {
 		if ($(this).text() == 'Contract') {
 			$(this).attr('href', 'http://127.0.0.1:8020/ConTest/OverviewContract.html?openCreatePopup=1');
-			//$(this).attr('href', 'http://192.168.166.16/ContractDemo/OverviewPerson.html?openCreatePopup=1');
+			//$(this).attr('href', 'http://192.168.166.16/ContractDemo/OverviewContract.html?openCreatePopup=1');
 			$(this).button();
 		}
 
 		if ($(this).text() == 'Partij') {
 			$(this).attr('href', 'http://127.0.0.1:8020/ConTest/OverviewParty.html?openCreatePopup=1');
-			//$(this).attr('href', 'http://192.168.166.16/ContractDemo/OverviewPerson.html?openCreatePopup=1');
+			//$(this).attr('href', 'http://192.168.166.16/ContractDemo/OverviewParty.html?openCreatePopup=1');
 			$(this).button();
 		}
 

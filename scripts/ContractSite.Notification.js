@@ -39,7 +39,8 @@
             template:"<input type='checkbox'>"
         }, {
             field: "Data",
-            title: "Datum"
+            title: "Datum",
+            template : '#= kendo.toString(Data,"MM/dd/yyyy") #'
         }, {
             field: "ContractNumber",
             title: "Contract nr"
