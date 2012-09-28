@@ -301,7 +301,9 @@ $(document).ready(function() {
 					// (int | optional) the time you want it to be alive for before fading out
 					time : '3000'
 				});
-
+				
+				$("#divSetNotification").dialog('close');
+				
 				return false;
 			},
 			"Return" : function() {
