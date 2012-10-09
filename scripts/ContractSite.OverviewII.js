@@ -448,7 +448,7 @@ $(document).ready(function() {
 	$("#dialog-form").dialog({
 		title : 'Niew Contract',
 		autoOpen : false,
-		height : 600,
+		height : 680,
 		width : 1000,
 		modal : true,
 		buttons : [{
@@ -633,8 +633,8 @@ $(document).ready(function() {
 			},
 			pageSize : 5
 		},
-		detailTemplate : kendo.template($("#template").html()),
-		detailInit : detailInit,
+		detailTemplate : kendo.template($("#partyTemplate").html()),
+		detailInit : partyDetailInit,
 		dataBound : function() {
 			//this.expandRow(this.tbody.find("tr.k-master-row").first());
 		},
@@ -684,8 +684,8 @@ $(document).ready(function() {
 			},
 			pageSize : 5
 		},
-		detailTemplate : kendo.template($("#template").html()),
-		detailInit : detailInit,
+		detailTemplate : kendo.template($("#personTemplate").html()),
+		detailInit : personDetailInit,
 		dataBound : function() {
 			//this.expandRow(this.tbody.find("tr.k-master-row").first());
 		},
@@ -906,12 +906,19 @@ $(document).ready(function() {
 	var personTab = tabstrip.tabGroup.children("li").eq(1);
 
 	$("input:radio[name='rdContact']").change(function() {
+		$('#btnAddNew').button();
+		
 		if ($(this).val() == 'person') {
 			$('#divContractDetails').show();
 
 			tabstrip.select(personTab);
 			tabstrip.enable(personTab, true);
 			tabstrip.enable(partyTab, false);
+			
+			$('#btnAddNew').val('Maak nieuw persoon');
+			$('#btnAddNew').bind('click', function(){
+				window.location.replace("http://127.0.0.1:8020/ConTest/OverviewPerson.html?openCreatePopup=1");
+			});
 		}
 
 		if ($(this).val() == 'party') {
@@ -921,6 +928,11 @@ $(document).ready(function() {
 			tabstrip.select(partyTab);
 			tabstrip.enable(partyTab, true);
 			tabstrip.enable(personTab, false);
+			
+			$('#btnAddNew').val('Maak nieuw partij');
+			$('#btnAddNew').bind('click', function(){
+				window.location.replace("http://127.0.0.1:8020/ConTest/OverviewPerson.html?openCreatePopup=1");
+			});
 		}
 	});
 
